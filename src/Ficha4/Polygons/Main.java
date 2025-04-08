@@ -18,7 +18,7 @@ public class Main {
             option = InputValidation.validateIntBetween(sc, "Opção: ", 0, 7);
             switch (option) {
                 case 1:
-                    System.out.println("1. Adicionar vértices ao final do polígono");
+                    System.out.println("1. Adicionar vértices ao final do polígono :");
                     x = InputValidation.validateDouble(sc, "Introduza a coordenada X: ");
                     y = InputValidation.validateDouble(sc, "Introduza a coordenada Y: ");
                     vertex = new Point2D(x, y);
