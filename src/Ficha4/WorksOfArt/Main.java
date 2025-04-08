@@ -68,15 +68,15 @@ public class Main {
                     for(i = 0; i<orders.size(); i++){
                         if(orders.get(i).getNumber() == orderNumberToSearch){
                             workOfArtToSearch = InputValidation.validateIntBetween(sc, "Qual a obra de arte que deseja remover: ", 1, workOfArtNumber - 1);
-                            for (j = 0; j < worksOfArt.size(); j++) {
-                                if(worksOfArt.get(j).getNumber() == workOfArtToSearch){
+                            for (j = 0; j < orders.get(i).getNumberOfWorksOfArtOrdered(); j++) {
+                                if( orders.get(i).getWorkOfArt(j).getNumber() == workOfArtToSearch){
+                                    orders.get(i).getWorkOfArt(j).setOrder(null);
                                     orders.get(i).removeWorkOfArt(worksOfArt.get(j));
-                                    worksOfArt.get(j).setOrder(null);
                                     System.out.println("Obra de arte removida com sucesso!");
                                     break;
                                 }
                             }
-                            if(j == worksOfArt.size()){
+                            if(j == orders.get(i).getNumberOfWorksOfArtOrdered()){
                                 System.out.println("Obra não encontrada!");
                             }
                             break;
@@ -91,12 +91,17 @@ public class Main {
                     orderNumberToSearch = InputValidation.validateIntBetween(sc, "Qual o numero da encomenda que deseja eliminar: ", 1, orderNumber - 1);
                     for(i = 0; i<orders.size(); i++){
                         if(orders.get(i).getNumber() == orderNumberToSearch){
-                            for (j = 0; j < worksOfArt.size(); j++) {
+                            for (j = 0; j < orders.get(i).getNumberOfWorksOfArtOrdered(); j++) {
+                                orders.get(i).getWorkOfArt(j).setOrder(null);
                             }
                             orders.get(i).clearWorksOfArt();
                             orders.remove(i);
                             System.out.println("Encomenda Eliminada com sucesso!");
+                            break;
                         }
+                    }
+                    if(i == orders.size() ){
+                        System.out.println("Encomenda não encontrada!");
                     }
                     break;
                 case 7:

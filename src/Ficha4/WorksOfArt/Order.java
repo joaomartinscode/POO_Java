@@ -48,7 +48,7 @@ public class Order {
         return worksOfArtOrdered.size();
     }
 
-    public WorkOfArt getWorkOfArtOrdered(int index) {
+    public WorkOfArt getWorkOfArt(int index) {
         return worksOfArtOrdered.get(index);
     }
 
