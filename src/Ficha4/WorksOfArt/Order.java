@@ -36,6 +36,14 @@ public class Order {
         }
     }
 
+    public void removeWorkOfArt(WorkOfArt workOfArt) {
+        worksOfArtOrdered.remove(workOfArt);
+    }
+
+    public void clearWorksOfArt() {
+        worksOfArtOrdered.clear();
+    }
+
     public String toString() {
         String formattedDate = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String s = "\n Encomenda número: " + number + " de " + formattedDate + "\n";

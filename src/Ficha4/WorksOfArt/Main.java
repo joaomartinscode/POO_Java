@@ -62,6 +62,41 @@ public class Main {
                         System.out.println("Encomenda não encontrada!");
                     }
                     break;
+                case 5:
+                    System.out.println("5. Remover obras de arte de encomenda");
+                    orderNumberToSearch = InputValidation.validateIntBetween(sc, "Qual o numero da encomenda que deseja remover uma obra de arte: ", 1, orderNumber - 1);
+                    for(i = 0; i<orders.size(); i++){
+                        if(orders.get(i).getNumber() == orderNumberToSearch){
+                            workOfArtToSearch = InputValidation.validateIntBetween(sc, "Qual a obra de arte que deseja remover: ", 1, workOfArtNumber - 1);
+                            for (j = 0; j < worksOfArt.size(); j++) {
+                                if(worksOfArt.get(j).getNumber() == workOfArtToSearch){
+                                    orders.get(i).removeWorkOfArt(worksOfArt.get(j));
+                                    worksOfArt.get(j).setOrder(null);
+                                    System.out.println("Obra de arte removida com sucesso!");
+                                    break;
+                                }
+                            }
+                            if(j == worksOfArt.size()){
+                                System.out.println("Obra não encontrada!");
+                            }
+                            break;
+                        }
+                    }
+                    if(i == orders.size() ){
+                        System.out.println("Encomenda não encontrada!");
+                    }
+                    break;
+                case 6:
+                    System.out.println("6. Eliminar encomenda de obras de arte");
+                    orderNumberToSearch = InputValidation.validateIntBetween(sc, "Qual o numero da encomenda que deseja eliminar: ", 1, orderNumber - 1);
+                    for(i = 0; i<orders.size(); i++){
+                        if(orders.get(i).getNumber() == orderNumberToSearch){
+                            orders.get(i).clearWorksOfArt();
+                            orders.remove(i);
+                            System.out.println("Encomenda Eliminada com sucesso!");
+                        }
+                    }
+                    break;
                 case 7:
                     System.out.println("7. Listar encomendas");
                     for (Order order : orders) {
@@ -80,6 +115,8 @@ public class Main {
         System.out.println("2. Listar obras de arte");
         System.out.println("3. Criar nova encomenda obras de arte");
         System.out.println("4. Adicionar obras de arte a encomenda já existente");
+        System.out.println("5. Remover obras de arte de encomenda");
+        System.out.println("6. Eliminar encomenda de obras de arte");
         System.out.println("7. Listar encomendas");
         System.out.println("0. Sair");
     }
