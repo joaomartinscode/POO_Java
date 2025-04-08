@@ -44,6 +44,14 @@ public class Order {
         worksOfArtOrdered.clear();
     }
 
+    public int getNumberOfWorksOfArtOrdered() {
+        return worksOfArtOrdered.size();
+    }
+
+    public WorkOfArt getWorkOfArtOrdered(int index) {
+        return worksOfArtOrdered.get(index);
+    }
+
     public String toString() {
         String formattedDate = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String s = "\n Encomenda número: " + number + " de " + formattedDate + "\n";

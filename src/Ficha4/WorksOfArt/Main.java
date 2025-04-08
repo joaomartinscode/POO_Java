@@ -91,6 +91,8 @@ public class Main {
                     orderNumberToSearch = InputValidation.validateIntBetween(sc, "Qual o numero da encomenda que deseja eliminar: ", 1, orderNumber - 1);
                     for(i = 0; i<orders.size(); i++){
                         if(orders.get(i).getNumber() == orderNumberToSearch){
+                            for (j = 0; j < worksOfArt.size(); j++) {
+                            }
                             orders.get(i).clearWorksOfArt();
                             orders.remove(i);
                             System.out.println("Encomenda Eliminada com sucesso!");
